@@ -3,122 +3,1086 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional GIS Services</title>
-    <!-- Tailwind CSS CDN for easy styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>KIMATHI JORAM - GIS Solutions</title>
     <style>
-        /* Apply the Inter font and set a consistent background color */
+        /* General Styles */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0fdf4; /* A light, fresh green-white */
-            color: #1f2937; /* Dark gray for text */
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #e9f4f4; /* Light teal */
+            color: #333;
         }
-        /* Custom styles for gradients and other effects */
-        .gradient-bg {
-            background-image: linear-gradient(to right, #059669, #10b981); /* Green gradient */
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        
+        /* Header and Nav */
+        header {
+            background: #004d40; /* Dark teal */
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+        .branding {
+            text-align: left;
+        }
+        .branding h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: #f0f8ff; /* AliceBlue */
+        }
+        .branding p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            color: #b2dfdb; /* Light teal */
+            font-style: italic;
+        }
+        .search-bar {
+            flex-grow: 1;
+            text-align: right;
+            margin-right: 20px;
+        }
+        .search-bar input {
+            width: 70%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        /* Main Content */
+        .intro-section {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(to right, #00796b, #4db6ac); /* Green gradient */
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .intro-section h2 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .intro-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 10px auto 0;
+        }
+        
+        /* Ideas and Sections */
+        .section-title {
+            text-align: center;
+            color: #004d40;
+            font-size: 2.5rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: #00796b;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+        }
+        .idea-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .idea {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 5px solid #004d40;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .idea:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .idea h3 {
+            color: #004d40;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .idea p {
+            margin: 10px 0;
+        }
+        .idea h4 {
+            color: #00796b;
+            font-size: 1.2rem;
+        }
+        .copy-btn {
+            background-color: #4db6ac;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .copy-btn:hover {
+            background-color: #26a69a;
+        }
+        
+        /* Terms and Conditions */
+        #terms {
+            background: #fff;
+            padding: 40px;
+            margin-top: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        #terms h2 {
+            color: #004d40;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: #004d40;
+            color: #b2dfdb;
+            margin-top: 40px;
+        }
+        .footer-content a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .branding {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .search-bar {
+                margin: 0;
+                width: 100%;
+            }
+            .search-bar input {
+                width: 100%;
+            }
+            .intro-section h2 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & Hero Section -->
-    <header class="bg-white shadow-md rounded-b-xl">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="text-2xl font-bold text-emerald-700">GIS Solutions</div>
-            <!-- Navigation links, hidden on mobile -->
-            <div class="hidden md:flex space-x-6">
-                <a href="#services" class="text-gray-600 hover:text-emerald-500 transition duration-300">Services</a>
-                <a href="#portfolio" class="text-gray-600 hover:text-emerald-500 transition duration-300">Portfolio</a>
-                <a href="#contact" class="text-gray-600 hover:text-emerald-500 transition duration-300">Contact</a>
+    <header>
+        <div class="header-content">
+            <div class="branding">
+                <h1>KIMATHI JORAM</h1>
+                <p>A GIS Enthusiast in DEKUT and Freelancer</p>
             </div>
-            <!-- Mobile menu button -->
-            <button class="md:hidden text-gray-600 hover:text-emerald-500 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </nav>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search ideas...">
+            </div>
+        </div>
     </header>
 
-    <main class="container mx-auto px-6 py-12">
-        <!-- Hero Section with a Call to Action -->
-        <section class="text-center py-20 rounded-xl gradient-bg shadow-lg text-white">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4">
-                Unlock Insights with Powerful GIS
-            </h1>
-            <p class="text-lg sm:text-xl md:text-2xl font-light max-w-3xl mx-auto mb-8">
-                Providing expert Geographic Information Systems solutions for a smarter world.
-            </p>
-            <!-- Link to the form.html page -->
-            <a href="form.html" class="bg-white text-emerald-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
-                Start Your Project
-            </a>
-        </section>
+    <div class="intro-section">
+        <h2>YOUR SUCCESS IN GIS IS MY PRIORITY</h2>
+        <p>I am a GIS and Remote Sensing specialist dedicated to providing innovative and affordable geospatial solutions. Leveraging my academic background from DEKUT and hands-on freelance experience, I am ready to turn your data challenges into opportunities. THIS IS OURS.</p>
+    </div>
 
-        <!-- Services Section -->
-        <section id="services" class="py-16">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-emerald-800 mb-12">Our Core Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-md text-center border-t-4 border-emerald-500 transition-transform transform hover:scale-105">
-                    <div class="text-4xl text-emerald-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Cartography & Map Design</h3>
-                    <p class="text-gray-600">Creating beautiful and informative maps for presentations, reports, and websites.</p>
-                </div>
-                <!-- Service Card 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-md text-center border-t-4 border-emerald-500 transition-transform transform hover:scale-105">
-                    <div class="text-4xl text-emerald-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L19.5 7.25M9.75 17L3.75 11.25V5.25L9.75 5.25V17Z" stroke-linejoin="round" stroke-miterlimit="10"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 7.25H13.5V1.25L19.5 7.25Z" stroke-linejoin="round" stroke-miterlimit="10"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Spatial Data Analysis</h3>
-                    <p class="text-gray-600">Turning raw data into meaningful insights through advanced analysis techniques.</p>
-                </div>
-                <!-- Service Card 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-md text-center border-t-4 border-emerald-500 transition-transform transform hover:scale-105">
-                    <div class="text-4xl text-emerald-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c2.165 0 3.864 0.99 4.864 2.828M15.42 12A7.5 7.5 0 0012 5.5v1.5a6 6 0 110 12v1.5a7.5 7.5 0 003.42-2.915"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Web Mapping & GIS Portals</h3>
-                    <p class="text-gray-600">Building interactive web maps and custom GIS portals for your organization.</p>
-                </div>
+    <div class="container">
+        <h2 class="section-title">Business Ideas & Sample Projects (1-100)</h2>
+        <div class="idea-grid" id="ideaGrid">
+            <div class="idea">
+                <h3>1. Cartographic Services</h3>
+                <p>Create professional, high-quality maps for reports, presentations, and websites. I use open data and professional cartographic principles to make complex data easy to understand.</p>
+                <h4>Sample Project: "Map of Nairobi County Sub-Counties"</h4>
+                <p class="project-description">A clear, well-designed map showing the administrative boundaries of Nairobi County's sub-counties. The map would be created using open data from the Kenya Open Data Portal. This is a foundational project to showcase cartographic skills.</p>
+                <button class="copy-btn">Copy Project Description</button>
             </div>
-        </section>
-
-        <!-- Call to Action Section - Again -->
-        <section class="py-16 text-center">
-            <div class="bg-emerald-100 p-12 rounded-xl shadow-md">
-                <h3 class="text-3xl font-bold text-emerald-800 mb-4">Ready to Start Your Project?</h3>
-                <p class="text-lg text-gray-700 mb-8">Tell us about your needs and let's build something great together.</p>
-                <!-- Link to the form.html page -->
-                <a href="form.html" class="bg-emerald-600 text-white hover:bg-emerald-700 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
-                    Fill Out the Form
-                </a>
+            
+            <div class="idea">
+                <h3>2. Web Map Development</h3>
+                <p>Build interactive online maps for businesses and organizations, allowing users to interact with and visualize data directly in a browser.</p>
+                <h4>Sample Project: "Interactive Map of Local Businesses in Kilimani"</h4>
+                <p class="project-description">A web map for a local Kilimani business association, allowing users to find member businesses by category (e.g., restaurant, salon, retail) and view their contact information. This enhances customer engagement and discoverability.</p>
+                <button class="copy-btn">Copy Project Description</button>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-16">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-emerald-800 mb-12">Contact Us</h2>
-            <div class="max-w-xl mx-auto text-center">
-                <p class="text-lg text-gray-700 mb-4">
-                    Have questions or want to discuss a custom project? Feel free to reach out.
-                </p>
-                <div class="text-gray-600">
-                    <p>Email: <a href="mailto:info@gissolutions.com" class="text-emerald-500 hover:underline">info@gissolutions.com</a></p>
-                    <p>Phone: +1 (123) 456-7890</p>
-                </div>
+            
+            <div class="idea">
+                <h3>3. Data Digitization & Geocoding</h3>
+                <p>Convert existing physical data (e.g., paper maps, address lists) into a digital, mappable format, making it searchable and analyzable.</p>
+                <h4>Sample Project: "Digitizing KPLC Network for a Small Estate"</h4>
+                <p class="project-description">A small gated community wants to digitize their electrical grid from a paper diagram to a digital map for easier maintenance and outage management. This creates a digital asset for the community's infrastructure.</p>
+                <button class="copy-btn">Copy Project Description</button>
             </div>
-        </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 rounded-t-xl">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 GIS Solutions. All Rights Reserved.</p>
+            <div class="idea">
+                <h3>4. Remote Sensing & Land Use Mapping</h3>
+                <p>Use satellite and drone imagery to analyze and map land changes, providing crucial insights for environmental, agricultural, and urban planning.</p>
+                <h4>Sample Project: "Land Use Change in Naivasha from 2015-2025"</h4>
+                <p class="project-description">An environmental NGO wants to understand how agricultural and urban expansion has affected the lake's ecosystem over the last decade. This time-series analysis provides a clear visual of environmental impact.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>5. GIS Tutoring & Training</h3>
+                <p>Offer one-on-one or group training sessions for students and professionals looking to learn the fundamentals of GIS or a specific software.</p>
+                <h4>Sample Project: "Introduction to QGIS for University Students"</h4>
+                <p class="project-description">A two-day workshop for geography students to learn the fundamentals of QGIS, including data loading, basic symbology, and map layout. This empowers them with practical, marketable skills.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>6. Site Suitability Analysis</h3>
+                <p>Help clients identify the best locations for new projects based on various criteria such as population density, competitor locations, and proximity to services.</p>
+                <h4>Sample Project: "Optimal Location for a New Retail Store in Kitengela"</h4>
+                <p class="project-description">A small business wants to open a new retail store and needs to find the ideal location based on factors like population density, competitor locations, and road access. This reduces risk and increases chances of success.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>7. Humanitarian & Public Service Mapping</h3>
+                <p>Provide GIS services to NGOs and government agencies to support planning and response efforts, focusing on social good.</p>
+                <h4>Sample Project: "Mapping Vulnerable Populations in Kibera"</h4>
+                <p class="project-description">A local community-based organization needs a map to show the distribution of food aid to the most vulnerable households in Kibera. This ensures aid is delivered efficiently to those who need it most.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>8. Precision Agriculture</h3>
+                <p>Use remote sensing and GIS to help farmers optimize their yields by identifying areas of their farm that need specific attention.</p>
+                <h4>Sample Project: "NDVI Analysis for a Coffee Farm in Nyeri"</h4>
+                <p class="project-description">A coffee farmer wants to identify areas of their plantation that are under stress and need targeted fertilizer or water. This helps them make informed decisions and reduce costs.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>9. Urban Growth Modeling</h3>
+                <p>Analyze and model how a city or town is expected to grow over time, assisting urban planners and developers.</p>
+                <h4>Sample Project: "Urban Expansion of Thika Town"</h4>
+                <p class="project-description">A research project to model and predict the direction and rate of Thika's urban expansion over the next 10 years, considering factors like population growth and land availability. This provides foresight for future infrastructure and policy.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>10. 3D Visualization of Urban Environments</h3>
+                <p>Create realistic 3D models of buildings and cityscapes for planning, architectural projects, or virtual tours.</p>
+                <h4>Sample Project: "3D Model of a Proposed Building in Nairobi CBD"</h4>
+                <p class="project-description">An architecture student needs a simple 3D model of a new building they are designing, placed within its real-world urban context. This helps with visualization and presentation.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>11. Environmental Change Detection</h3>
+                <p>Monitor and map environmental changes over time, like deforestation, coastal erosion, or wetland loss.</p>
+                <h4>Sample Project: "Deforestation in Mau Forest Complex (2010-2020)"</h4>
+                <p class="project-description">An environmental agency needs a visual report on the extent of deforestation in the Mau Forest Complex to inform conservation strategies.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>12. Public Transit Analysis</h3>
+                <p>Analyze and visualize public transport routes, coverage, and accessibility to help urban planners and commuters.</p>
+                <h4>Sample Project: "Matatu Route Map and Accessibility for Rongai"</h4>
+                <p class="project-description">A local Sacco wants to optimize their routes and show potential customers their service coverage. This project maps all the major matatu routes in Rongai and their frequency.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>13. Real Estate Market Mapping</h3>
+                <p>Provide real estate agents and developers with maps that analyze property values, market trends, and key demographics.</p>
+                <h4>Sample Project: "Property Value vs. Proximity to Amenities in Karen"</h4>
+                <p class="project-description">A real estate firm wants to see if there is a correlation between property values in Karen and their proximity to amenities like schools, shopping centers, and parks.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>14. Drone Mapping & Orthomosaics</h3>
+                <p>Use a low-cost drone to create high-resolution aerial maps (orthomosaics) for clients.</p>
+                <h4>Sample Project: "Orthomosaic Map for a Construction Site"</h4>
+                <p class="project-description">A construction company needs a high-resolution, georeferenced map of their site to monitor progress, plan logistics, and track material stockpiles.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>15. Disaster Risk Assessment Mapping</h3>
+                <p>Create maps that identify and assess areas at high risk from natural disasters like floods, landslides, or wildfires.</p>
+                <h4>Sample Project: "Flood Risk Map for a Low-Lying Area in Nairobi"</h4>
+                <p class="project-description">A county government or NGO needs a map to identify areas in Nairobi that are most susceptible to flooding during heavy rains.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>16. Environmental Impact Assessment (EIA) Mapping</h3>
+                <p>Provide geospatial support for EIAs by mapping potential impacts of new developments on ecosystems and communities.</p>
+                <h4>Sample Project: "EIA Map for a Proposed Dam Project in Murang'a"</h4>
+                <p class="project-description">An environmental consultancy needs to map the project's direct and indirect impacts on local rivers, forests, and residential areas to comply with regulations.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>17. Soil Suitability Analysis</h3>
+                <p>Create maps that help farmers and developers determine which crops are best suited for specific soil types and climates.</p>
+                <h4>Sample Project: "Soil Suitability Map for Avocado Farming in Kisii"</h4>
+                <p class="project-description">A group of small-scale farmers needs a map to identify the most suitable land parcels for planting avocados to maximize yield and minimize resource use.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>18. Wildlife Habitat Mapping</h3>
+                <p>Use GIS to map and analyze the habitats of specific animal species, supporting conservation efforts.</p>
+                <h4>Sample Project: "Mapping Elephant Migration Corridors in Amboseli"</h4>
+                <p class="project-description">A wildlife conservancy needs to map the movement corridors of elephants to identify key areas for protection from human encroachment.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>19. Geodemographics for Retail</h3>
+                <p>Analyze and visualize demographic data to help retail businesses understand their customer base and find new store locations.</p>
+                <h4>Sample Project: "Customer Demographic Analysis for a Supermarket in Eldoret"</h4>
+                <p class="project-description">A supermarket chain wants to open a new branch and needs to identify a location with the highest density of their target demographic (e.g., young families, middle-income earners).</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>20. Route Optimization for Delivery</h3>
+                <p>Use GIS to calculate the most efficient delivery routes, saving time, fuel, and operational costs for logistics businesses.</p>
+                <h4>Sample Project: "Optimizing Delivery Routes for a Courier Service in Mombasa"</h4>
+                <p class="project-description">A courier company wants to reduce its delivery times by finding the most efficient sequence of stops for its drivers in Mombasa's complex road network.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>21. Fire Risk Mapping</h3>
+                <p>Combine data on vegetation, wind, and historical fire incidents to create maps showing areas at high risk of wildfires.</p>
+                <h4>Sample Project: "Wildfire Risk Assessment for Mt. Kenya Forest Reserve"</h4>
+                <p class="project-description">The Kenya Forest Service needs a map to prioritize areas for fire breaks and patrols based on fuel load and historical fire data.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>22. Utilities Infrastructure Mapping</h3>
+                <p>Create detailed maps of water pipes, power lines, and other utilities for improved asset management and maintenance.</p>
+                <h4>Sample Project: "Mapping Water Supply Network in a Small Town"</h4>
+                <p class="project-description">A municipal water company wants to create a digital map of its water pipes, valves, and pumping stations to better manage its network and respond to leaks.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>23. Tourism Destination Mapping</h3>
+                <p>Develop interactive maps and guides for tourism boards, showcasing attractions, hotels, and transportation routes.</p>
+                <h4>Sample Project: "Interactive Map of Tourist Attractions in Lamu Old Town"</h4>
+                <p class="project-description">A local tourism board wants an online map for visitors to explore Lamu's historical sites, restaurants, and hotels, complete with photos and descriptions.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>24. Crime Hotspot Analysis</h3>
+                <p>Map and analyze crime data to identify areas with a high concentration of criminal activity, assisting law enforcement agencies.</p>
+                <h4>Sample Project: "Mapping Pickpocketing Hotspots in Nairobi CBD"</h4>
+                <p class="project-description">A local police station needs a map to visualize reported pickpocketing incidents over the past year to deploy patrols more effectively and warn the public.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>25. GIS for Public Health</h3>
+                <p>Visualize health data to map disease prevalence, healthcare access, and plan public health interventions.</p>
+                <h4>Sample Project: "Mapping Healthcare Facility Accessibility in Turkana County"</h4>
+                <p class="project-description">An NGO needs a map to show the distance and travel time for residents to reach the nearest health clinic in Turkana, a large and sparsely populated county.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>26. School Location Analysis</h3>
+                <p>Map all schools in a county and analyze their capacity and accessibility for education planners.</p>
+                <h4>Sample Project: "School Mapping Project in Kiambu County"</h4>
+                <p class="project-description">The county education office needs a comprehensive map of all primary and secondary schools to identify areas lacking sufficient educational facilities and plan for new school construction.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>27. Agricultural Census Visualization</h3>
+                <p>Create interactive dashboards and maps from the KNBS agricultural census data to show trends in crop production and livestock.</p>
+                <h4>Sample Project: "Interactive Dashboard of Maize Production in Kenya"</h4>
+                <p class="project-description">An agribusiness company needs a dashboard that visually represents maize production data by county, allowing them to make informed decisions on sourcing and market strategy.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>28. Land Tenure & Parcel Mapping</h3>
+                <p>Digitize and organize land parcel data for real estate firms or local governments to improve land management.</p>
+                <h4>Sample Project: "Land Parcel Mapping for a Residential Development in Juja"</h4>
+                <p class="project-description">A real estate developer needs a digital map of all the plots within their new residential project, including plot numbers, sizes, and ownership information.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>29. Public Park & Recreation Planning</h3>
+                <p>Help local governments map existing parks, analyze accessibility, and identify potential new park locations.</p>
+                <h4>Sample Project: "Mapping Public Parks in Kisumu"</h4>
+                <p class="project-description">The city council of Kisumu needs a map showing all public parks and green spaces to plan for maintenance, improvement, and the creation of new recreational areas based on population density.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>30. Humanitarian Crisis Mapping</h3>
+                <p>Provide geospatial support to NGOs and aid organizations during humanitarian crises.</p>
+                <h4>Sample Project: "Mapping Refugee Camps in Northern Kenya"</h4>
+                <p class="project-description">A humanitarian organization needs a detailed map of a refugee camp, including the location of shelters, water points, and sanitation facilities, to coordinate aid delivery and services.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>31. Solar Energy Potential Mapping</h3>
+                <p>Use GIS and satellite imagery to identify optimal locations for solar panel installations on rooftops or in open fields.</p>
+                <h4>Sample Project: "Rooftop Solar Potential for a University Campus"</h4>
+                <p class="project-description">A university wants to install solar panels on its buildings and needs a map that calculates the solar radiation for each rooftop, identifying the best locations for maximum energy production.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>32. Water Body Monitoring</h3>
+                <p>Use remote sensing to track changes in water bodies, such as the size of a lake or the turbidity of a river.</p>
+                <h4>Sample Project: "Monitoring Lake Nakuru's Water Extent Over 10 Years"</h4>
+                <p class="project-description">A research group needs a time-series analysis of satellite imagery to show the changes in Lake Nakuru's water extent over the past decade, which is crucial for environmental studies.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>33. Coastal Erosion Monitoring</h3>
+                <p>Use time-series satellite imagery to monitor and map changes in coastlines due to erosion or accretion.</p>
+                <h4>Sample Project: "Monitoring Coastal Erosion in Watamu"</h4>
+                <p class="project-description">A coastal management authority needs a report on the rate of coastal erosion in Watamu to implement protection measures and manage local tourism infrastructure.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>34. Waste Collection Route Optimization</h3>
+                <p>Design the most efficient routes for waste collection trucks, saving time, fuel, and reducing operational costs for municipalities.</p>
+                <h4>Sample Project: "Optimizing Waste Collection Routes for a Nairobi Sub-County"</h4>
+                <p class="project-description">A sub-county government needs to plan efficient routes for its garbage trucks to ensure timely collection, reduce traffic congestion, and lower fuel consumption.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>35. Crop Health Monitoring (NDVI)</h3>
+                <p>Use satellite imagery to create NDVI maps for farmers to assess and monitor the health of their crops.</p>
+                <h4>Sample Project: "NDVI Maps for a Tea Estate in Kericho"</h4>
+                <p class="project-description">A tea estate manager wants to use NDVI maps to identify areas of the plantation with low vigor, allowing for targeted application of fertilizers and pesticides.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>36. Property Mapping Services</h3>
+                <p>Create detailed maps of properties, including boundaries, easements, and surrounding amenities for real estate agents and surveyors.</p>
+                <h4>Sample Project: "Mapping a 5-Acre Property in Limuru"</h4>
+                <p class="project-description">A property owner needs a professional map of their land, including its boundaries, a list of neighboring properties, and a 3D terrain model for planning purposes.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>37. GIS for Film Location Scouting</h3>
+                <p>Use GIS to help film producers find ideal shooting locations based on factors like accessibility, scenery, and proximity to services.</p>
+                <h4>Sample Project: "Scouting Locations for a Documentary in Maasai Mara"</h4>
+                <p class="project-description">A film crew needs a map of potential shooting locations in Maasai Mara, including animal hotspots, scenic views, and nearby lodges for crew accommodation.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>38. Geospatial Data Visualization for Reports</h3>
+                <p>Create compelling maps and infographics from spatial data for companies' annual reports, presentations, or grant applications.</p>
+                <h4>Sample Project: "Annual Report Maps for a Microfinance Institution"</h4>
+                <p class="project-description">A microfinance institution needs a set of maps for their annual report, visualizing their branch locations, client distribution, and loan disbursement by county.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>39. Public Service Accessibility Analysis</h3>
+                <p>Measure and map the travel time or distance for residents to reach public services like schools, hospitals, and libraries.</p>
+                <h4>Sample Project: "Mapping Accessibility to Libraries in Nyeri"</h4>
+                <p class="project-description">The county library service needs a map to show which parts of Nyeri have poor access to public libraries to help them plan for new mobile library services or branch locations.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>40. Geo-Demographics for Social Media</h3>
+                <p>Analyze and map social media data to understand the geographic distribution of a brand's followers or public sentiment.</p>
+                <h4>Sample Project: "Mapping Brand Mentions on Twitter in Nairobi"</h4>
+                <p class="project-description">A marketing agency wants a map showing where their client's brand is being mentioned on Twitter in Nairobi, helping them target digital advertising campaigns more effectively.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>41. Housing Needs Analysis</h3>
+                <p>Use census data to map areas with high household density but a low supply of formal housing, assisting in urban planning.</p>
+                <h4>Sample Project: "Housing Gap Analysis in Kisumu's Informal Settlements"</h4>
+                <p class="project-description">A housing NGO needs to identify and map the areas with the highest housing deficit in Kisumu to prioritize their development projects.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>42. Micro-mobility Analysis</h3>
+                <p>Analyze data from bike-sharing or scooter services to help cities understand usage patterns and plan for infrastructure.</p>
+                <h4>Sample Project: "Mapping Bike-Sharing Trends in Nairobi's Upper Hill"</h4>
+                <p class="project-description">A micro-mobility company wants a map that shows the most popular routes and busiest drop-off points for its bikes in Upper Hill, helping them optimize their fleet deployment.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>43. Solar Panel Thermal Inspection (Drone)</h3>
+                <p>Use drone imagery with a thermal camera to inspect solar panels for hotspots, indicating inefficiency or damage.</p>
+                <h4>Sample Project: "Thermal Inspection of a Solar Farm in Garissa"</h4>
+                <p class="project-description">A solar power plant needs a thermal map of its solar panels to quickly identify and replace faulty panels, maximizing energy production.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>44. Geocoding Services</h3>
+                <p>Convert lists of addresses, place names, or locations into mappable coordinates.</p>
+                <h4>Sample Project: "Geocoding 500 Customer Addresses for an E-commerce Business"</h4>
+                <p class="project-description">An online store needs to map its customer base to understand its market reach and plan future marketing campaigns.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>45. Soil Erosion Risk Mapping</h3>
+                <p>Combine DEM data with land cover to identify and map areas at high risk of soil erosion.</p>
+                <h4>Sample Project: "Mapping Soil Erosion Risk in the Tana River Basin"</h4>
+                <p class="project-description">A conservation NGO needs a map to identify areas of high soil erosion risk in the Tana River basin to prioritize soil conservation efforts.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>46. Deforestation Hotspot Identification</h3>
+                <p>Use satellite imagery to automatically detect and map areas with high rates of deforestation.</p>
+                <h4>Sample Project: "Identifying Illegal Logging Hotspots in Mau Forest"</h4>
+                <p class="project-description">A forest protection agency needs an automated system to alert them to potential illegal logging activities based on recent changes in satellite imagery of the Mau Forest.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>47. Asset Inventory for Agriculture</h3>
+                <p>Use GIS to map and manage farm assets like fences, storage facilities, and irrigation systems.</p>
+                <h4>Sample Project: "Digital Farm Map for a Large Flower Farm in Naivasha"</h4>
+                <p class="project-description">A flower farm manager needs a digital map of their entire property, including greenhouses, water pumps, and staff housing, for efficient management and security.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>48. GIS for Emergency Response</h3>
+                <p>Create maps and data visualizations to assist emergency services during a crisis, such as a fire or flood.</p>
+                <h4>Sample Project: "Evacuation Route Planning for a Kisumu Flood Zone"</h4>
+                <p class="project-description">The county disaster management team needs a map that identifies all potential flood zones in Kisumu and outlines safe and accessible evacuation routes for residents.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>49. Socio-Economic Vulnerability Mapping</h3>
+                <p>Combine data on poverty, education, and health to create a composite vulnerability index for a community.</p>
+                <h4>Sample Project: "Mapping Socio-Economic Vulnerability in Kakuma Refugee Camp"</h4>
+                <p class="project-description">A humanitarian organization needs a map to identify which zones within the camp are most vulnerable to a lack of resources, helping them prioritize aid delivery.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>50. Landslide Risk Mapping</h3>
+                <p>Use a combination of DEM, soil type, and rainfall data to map areas prone to landslides.</p>
+                <h4>Sample Project: "Landslide Susceptibility Map for Murang'a County"</h4>
+                <p class="project-description">The county government needs a map to warn residents and guide infrastructure development away from high-risk landslide areas.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>51. Census Data Visualization</h3>
+                <p>Create thematic maps and interactive dashboards from KNBS census data to make complex demographic information accessible.</p>
+                <h4>Sample Project: "Interactive Population Density Map of Kenya"</h4>
+                <p class="project-description">A consulting firm needs an interactive web map that visualizes Kenya's population density by county and sub-county, allowing for easy data exploration.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>52. Agricultural Pest/Disease Mapping</h3>
+                <p>Use GIS to track and map the spread of agricultural pests and diseases to help farmers and extension workers.</p>
+                <h4>Sample Project: "Mapping Coffee Berry Disease Outbreaks in Meru"</h4>
+                <p class="project-description">A cooperative of coffee farmers needs a map that tracks the spread of Coffee Berry Disease, helping them implement targeted control measures.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>53. Mobile GIS for Field Data Collection</h3>
+                <p>Set up mobile GIS solutions for organizations to collect accurate geospatial data in the field using smartphones or tablets.</p>
+                <h4>Sample Project: "Setting Up QField for a Conservation Team"</h4>
+                <p class="project-description">A team of conservationists needs to collect data on illegal snares and logging activities. I would set up a QGIS project and a QField template for them to use on their mobile devices in the field.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>54. Geocoded Social Media Feed Mapping</h3>
+                <p>Process social media data with a location component to visualize public sentiment or event occurrences.</p>
+                <h4>Sample Project: "Mapping Public Sentiment about a Political Rally"</h4>
+                <p class="project-description">A political campaign needs a map that visualizes the geographic distribution of tweets and other social media posts related to their recent rally, helping them gauge their reach and support.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>55. Public Transport Accessibility Analysis</h3>
+                <p>Analyze and map the reach of public transportation networks, identifying areas with poor access.</p>
+                <h4>Sample Project: "Accessibility to BRT Stations in Nairobi"</h4>
+                <p class="project-description">A public transit authority needs a map to show the population within a 5-minute walking distance of each Bus Rapid Transit (BRT) station, helping them plan for feeder routes and pedestrian infrastructure.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>56. Drone Orthomosaic for Farmers</h3>
+                <p>Provide high-resolution aerial maps of farms to help with crop health monitoring, irrigation planning, and yield prediction.</p>
+                <h4>Sample Project: "Orthomosaic Map of a Wheat Farm in Narok"</h4>
+                <p class="project-description">A large-scale wheat farmer needs an up-to-date, high-resolution aerial map of their farm to better plan irrigation and monitor crop health throughout the growing season.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>57. School District Boundary Mapping</h3>
+                <p>Create and update school district boundary maps for local governments or real estate agents.</p>
+                <h4>Sample Project: "Mapping School Zones for a Real Estate Agency"</h4>
+                <p class="project-description">A real estate agency needs a set of accurate maps showing the boundaries of all school zones in a city, which is a key selling point for families looking to move.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>58. Environmental Conservation Planning</h3>
+                <p>Use GIS to identify and prioritize areas for environmental conservation based on biodiversity, ecosystem services, and threats.</p>
+                <h4>Sample Project: "Conservation Priority Map for the Aberdare Forest"</h4>
+                <p class="project-description">A conservation group needs a map to identify the most critical areas in the Aberdare Forest to focus their anti-poaching and reforestation efforts.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>59. Supply Chain Optimization Mapping</h3>
+                <p>Map and analyze a company's supply chain to identify inefficiencies and potential improvements.</p>
+                <h4>Sample Project: "Supply Chain Visualization for a Beverage Company"</h4>
+                <p class="project-description">A beverage company wants a map that shows the locations of its factories, distributors, and key retail outlets, helping them identify logistical bottlenecks and optimize delivery routes.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>60. Public Health Epidemiology Mapping</h3>
+                <p>Visualize the spread of diseases or map the distribution of health resources in a community.</p>
+                <h4>Sample Project: "Mapping Malaria Hotspots in Western Kenya"</h4>
+                <p class="project-description">The Ministry of Health needs a map to visualize malaria incidence rates by sub-county in Western Kenya, helping them allocate resources for mosquito net distribution and public awareness campaigns.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>61. Forest Fire Burn Severity Mapping</h3>
+                <p>Use remote sensing to assess the severity of a forest fire by analyzing satellite imagery before and after the event.</p>
+                <h4>Sample Project: "Burn Severity Analysis for a Fire in the Chyulu Hills"</h4>
+                <p class="project-description">A conservancy needs to understand the extent and severity of a recent fire to plan for reforestation and soil rehabilitation efforts.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>62. Noise Pollution Mapping</h3>
+                <p>Map and analyze noise levels in urban areas to help city planners and environmental consultants.</p>
+                <h4>Sample Project: "Noise Pollution Map of Nairobi CBD"</h4>
+                <p class="project-description">A city planning department needs a map to identify the noisiest areas in the CBD, helping them enforce noise pollution laws and plan for sound barriers near residential zones.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>63. Watershed Delineation</h3>
+                <p>Use digital elevation models (DEMs) to delineate watersheds and analyze water flow for hydrological studies.</p>
+                <h4>Sample Project: "Delineating the Ewaso Nyiro River Watershed"</h4>
+                <p class="project-description">A water management authority needs to delineate the watershed of the Ewaso Nyiro River to better understand water availability and manage water resources for downstream communities.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>64. Land Cover Change for Agriculture</h3>
+                <p>Analyze how agricultural land use has changed over time to inform food security policies.</p>
+                <h4>Sample Project: "Agricultural Expansion in the Rift Valley (2000-2020)"</h4>
+                <p class="project-description">A food security research institute needs a map showing the expansion of agricultural land in the Rift Valley over two decades to understand its impact on food production and natural habitats.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>65. GIS for Archaeology</h3>
+                <p>Map archaeological finds and features to assist researchers with spatial analysis.</p>
+                <h4>Sample Project: "Mapping Archaeological Finds at Koobi Fora"</h4>
+                <p class="project-description">A team of archaeologists needs a detailed map of their excavation site at Koobi Fora, showing the precise location of every fossil and artifact, to analyze their spatial relationships.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>66. Infrastructure Vulnerability Mapping</h3>
+                <p>Identify which critical infrastructure (e.g., roads, bridges, hospitals) is most vulnerable to natural disasters.</p>
+                <h4>Sample Project: "Vulnerability of Roads to Flooding in Western Kenya"</h4>
+                <p class="project-description">The Kenya National Highways Authority needs a map that highlights which sections of key roads are most likely to be submerged during the rainy season, to prioritize maintenance and upgrade projects.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>67. Custom Python Scripting for GIS</h3>
+                <p>Write and sell specialized Python scripts to automate repetitive GIS tasks for other professionals.</p>
+                <h4>Sample Project: "Automating Data Cleaning for a Survey Firm"</h4>
+                <p class="project-description">A land survey firm often receives messy GPS data. I would write a Python script that automatically cleans, organizes, and formats the data into a usable GIS format, saving them hours of manual work.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>68. Geospatial Storytelling</h3>
+                <p>Create interactive and visually engaging narratives using tools like ArcGIS StoryMaps to tell a story with a spatial component.</p>
+                <h4>Sample Project: "The Story of the Nairobi Expressway"</h4>
+                <p class="project-description">A publication wants to tell the story of the Nairobi Expressway, including its construction timeline, key features, and impact on traffic, using an interactive map-based narrative.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>69. E-commerce Delivery Zone Mapping</h3>
+                <p>Help e-commerce businesses define and optimize their delivery zones based on population density and road networks.</p>
+                <h4>Sample Project: "Defining Delivery Zones for an Online Florist"</h4>
+                <p class="project-description">An online florist needs to define its delivery zones in Nairobi and the surrounding areas, calculating the cost of delivery for each zone based on distance and traffic.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>70. Agricultural Drone Survey</h3>
+                <p>Offer a one-off service for farmers to fly a drone, create a high-resolution orthomosaic, and provide an NDVI map for a single season.</p>
+                <h4>Sample Project: "Drone Survey of a Sugarcane Farm"</h4>
+                <p class="project-description">A sugarcane farmer wants a high-resolution map of their entire farm to identify areas with a high concentration of weeds and plan for targeted herbicide application.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>71. GIS for Art & Design</h3>
+                <p>Use GIS to create unique and beautiful maps as art pieces for sale, either as prints or digital files.</p>
+                <h4>Sample Project: "Custom Topographic Map of Mt. Kenya"</h4>
+                <p class="project-description">An art lover wants a stylized, topographic map of Mt. Kenya as a print for their living room, using a unique color palette and design elements to make it a piece of art.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>72. Geospatial Data Cleaning & Pre-processing</h3>
+                <p>Offer services to clean, organize, and prepare messy geospatial datasets for analysis.</p>
+                <h4>Sample Project: "Cleaning Survey Data from 500 Households"</h4>
+                <p class="project-description">A research organization has a dataset from a household survey with inconsistent address formats. I would use geocoding tools and manual cleanup to ensure the data is accurate and ready for spatial analysis.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>73. GIS for Insurance Risk Assessment</h3>
+                <p>Create maps that show the risk of floods, fires, or other hazards for insurance companies to inform their premium calculations.</p>
+                <h4>Sample Project: "Mapping Flood Risk for a Nairobi Insurance Company"</h4>
+                <p class="project-description">An insurance company needs a map that visualizes the flood risk for all properties in Nairobi, helping them determine which areas are too risky to insure or require higher premiums.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>74. Open-Source GIS Implementation</h3>
+                <p>Help small businesses and organizations transition from proprietary software to free and open-source GIS solutions like QGIS.</p>
+                <h4>Sample Project: "Migrating a Small Engineering Firm to QGIS"</h4>
+                <p class="project-description">A small engineering firm wants to stop paying for expensive licenses for commercial GIS software. I would help them migrate their data to QGIS and provide training to their staff.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>75. GIS for Historical Research</h3>
+                <p>Georeference and digitize old maps and historical records to create a spatial database for researchers and historians.</p>
+                <h4>Sample Project: "Georeferencing Historical Maps of Lamu Old Town"</h4>
+                <p class="project-description">A historian needs to georeference and digitize a series of colonial-era maps of Lamu Old Town to study how the town's layout has changed over the past 100 years.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>76. Public Infrastructure Monitoring (Drone)</h3>
+                <p>Use a drone to inspect public infrastructure like bridges, cell towers, and power lines for maintenance needs.</p>
+                <h4>Sample Project: "Drone Inspection of a Bridge in Nairobi"</h4>
+                <p class="project-description">The county government needs a cost-effective way to inspect the structural integrity of a bridge. I would use a drone to capture high-resolution imagery and video to identify cracks or other damage.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>77. Forest Health Monitoring</h3>
+                <p>Use remote sensing to assess and map the health of forests, identifying areas affected by disease or drought.</p>
+                <h4>Sample Project: "Forest Health Analysis of the Kakamega Forest"</h4>
+                <p class="project-description">A research institute needs a map showing the health of the Kakamega Forest based on satellite imagery, helping them to identify and study areas of ecological stress.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>78. Geocoding for a Courier Service</h3>
+                <p>Turn a courier service's customer list into a mappable dataset for route planning and market analysis.</p>
+                <h4>Sample Project: "Geocoding for an E-commerce Courier"</h4>
+                <p class="project-description">An e-commerce courier service needs to geocode its customer database to better understand its service areas and plan for future expansion.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>79. GIS for Archaeological Site Mapping</h3>
+                <p>Create detailed maps of archaeological sites to assist in research and preservation.</p>
+                <h4>Sample Project: "Mapping the Ruins of Gedi"</h4>
+                <p class="project-description">A historical society needs a highly detailed map of the Gedi ruins, including the location of different structures and artifacts, for research and tourism purposes.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>80. Geospatial Data Scraping</h3>
+                <p>Write Python scripts to scrape data with a location component from websites, geocode it, and store it in a database.</p>
+                <h4>Sample Project: "Scraping Real Estate Listings in Nairobi"</h4>
+                <p class="project-description">A property research company needs a script that scrapes all real estate listings in Nairobi from popular websites, geocodes them, and stores them in a database for market analysis.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>81. GIS for Education Curriculum</h3>
+                <p>Develop and sell online courses or teaching materials on GIS fundamentals and practical applications.</p>
+                <h4>Sample Project: "GIS Fundamentals for Kenyan High Schools"</h4>
+                <p class="project-description">Create an educational module that introduces high school students to GIS concepts using local Kenyan data, making the subject more engaging and relevant to their lives.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>82. Climate Change Impact Mapping</h3>
+                <p>Map and analyze the effects of climate change on specific geographic areas, such as rising sea levels or desertification.</p>
+                <h4>Sample Project: "Mapping Sea-Level Rise in the Kenyan Coast"</h4>
+                <p class="project-description">A government agency needs a map that visualizes the potential impact of a 1-meter rise in sea level on coastal towns and infrastructure in Kenya.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>83. Geospatial Data Security Audits</h3>
+                <p>Help organizations ensure their geospatial data is stored and managed securely, protecting sensitive information.</p>
+                <h4>Sample Project: "GIS Data Security Audit for a Utility Company"</h4>
+                <p class="project-description">A water utility company needs an audit of its GIS data management system to ensure that sensitive infrastructure data is protected from unauthorized access.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>84. 3D Print Topography Models</h3>
+                <p>Use GIS data (DEMs) to create physical 3D-printed models of landscapes for sale to students, researchers, or tourists.</p>
+                <h4>Sample Project: "3D-Printed Topographic Model of the Great Rift Valley"</h4>
+                <p class="project-description">A geologist needs a physical, 3D-printed model of a section of the Great Rift Valley for a lecture, providing a tangible way to understand the terrain.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>85. Geospatial Data for Media</h3>
+                <p>Partner with journalists to create compelling maps and data visualizations for news stories and articles.</p>
+                <h4>Sample Project: "Interactive Map of Election Results by Constituency"</h4>
+                <p class="project-description">A news organization needs an interactive map that visualizes the results of a recent election by constituency, allowing readers to explore the data for themselves.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>86. Forest Cover Change Detection for Carbon Credits</h3>
+                <p>Use remote sensing to measure and report on forest cover changes for carbon credit projects.</p>
+                <h4>Sample Project: "Measuring Reforestation for a Carbon Credit Project in Laikipia"</h4>
+                <p class="project-description">A conservation group needs to accurately measure the growth of a reforested area over time to qualify for carbon credits, using satellite imagery and GIS analysis.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>87. GIS for Asset Inventory</h3>
+                <p>Use GIS to create a digital inventory of a company's physical assets, such as vehicles, equipment, or properties.</p>
+                <h4>Sample Project: "Asset Inventory for a Construction Company"</h4>
+                <p class="project-description">A construction company needs a georeferenced map of all its equipment, vehicles, and construction sites to improve asset tracking and logistics.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>88. Public Transport Route Optimization</h3>
+                <p>Analyze public transport routes to identify inefficiencies and suggest improvements.</p>
+                <h4>Sample Project: "Optimizing Bus Routes for a City's Public Transport"</h4>
+                <p class="project-description">A city transport authority needs to optimize its bus routes to reduce travel times and improve service coverage, using GIS to analyze passenger data and traffic patterns.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>89. GIS for Social Research</h3>
+                <p>Use spatial analysis to understand the geographic component of social phenomena, such as poverty, education, or access to services.</p>
+                <h4>Sample Project: "Mapping Gender-Based Violence Hotspots"</h4>
+                <p class="project-description">A social research organization needs a map to visualize the geographic distribution of reported gender-based violence incidents, helping them allocate resources for support centers.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>90. Drone-Based 3D Modeling</h3>
+                <p>Create accurate 3D models of buildings, construction sites, or landscapes from drone imagery.</p>
+                <h4>Sample Project: "3D Model of a Historical Monument"</h4>
+                <p class="project-description">A historical preservation society wants a detailed 3D model of a monument to assist in restoration and preservation planning, using a drone to capture high-resolution imagery.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>91. Geospatial Data Quality Control</h3>
+                <p>Offer services to ensure the accuracy, completeness, and consistency of geospatial data for clients.</p>
+                <h4>Sample Project: "Quality Control for a Municipal Geodatabase"</h4>
+                <p class="project-description">A city government needs a professional to audit its geodatabase of public assets, ensuring that all data is correctly georeferenced, has consistent attributes, and is free of errors.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>92. Custom GIS Web Application Development</h3>
+                <p>Build simple, purpose-built web applications that solve a specific problem for a niche market.</p>
+                <h4>Sample Project: "A Simple Land Search Application"</h4>
+                <p class="project-description">A small land survey firm needs a simple internal web application where they can search for land parcels by name or plot number and view their location on a map.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>93. GIS for Insurance Policy Sales</h3>
+                <p>Use GIS to identify and target potential customers for insurance policies based on their location and risk factors.</p>
+                <h4>Sample Project: "Targeting Customers for Flood Insurance"</h4>
+                <p class="project-description">An insurance company needs a map that visualizes the areas in Nairobi most at risk of flooding, to target those residents with flood insurance policies.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>94. Hydrological Modeling</h3>
+                <p>Use GIS to model water flow, predict floodplains, and analyze the impact of rainfall on a landscape.</p>
+                <h4>Sample Project: "Floodplain Mapping for a River in Western Kenya"</h4>
+                <p class="project-description">A local water management board needs a map that visualizes the floodplain of a river to inform residents and guide urban development away from high-risk areas.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>95. Animal Tracking Visualization</h3>
+                <p>Map and visualize animal tracking data (e.g., GPS collars) to support wildlife research and conservation.</p>
+                <h4>Sample Project: "Mapping Elephant Movement in the Amboseli Ecosystem"</h4>
+                <p class="project-description">A wildlife research institute needs a map that visualizes the GPS tracking data of elephants, helping them understand their movement patterns and identify human-wildlife conflict zones.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>96. GIS for Archaeology and Heritage Preservation</h3>
+                <p>Use GIS to create detailed maps of historical sites for preservation, research, and virtual tourism.</p>
+                <h4>Sample Project: "Mapping the Architectural Features of Fort Jesus"</h4>
+                <p class="project-description">A historical preservation society needs a detailed GIS map of Fort Jesus, documenting all its architectural features and historical layers for research and educational purposes.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>97. Land Cover Change for Environmental Reporting</h3>
+                <p>Provide NGOs and government agencies with data on land cover change for environmental reporting and policy-making.</p>
+                <h4>Sample Project: "Report on Wetland Loss in the Nairobi Metropolitan Area"</h4>
+                <p class="project-description">An environmental NGO needs a report and map that quantifies the loss of wetlands in the Nairobi area over the past 20 years, using satellite imagery to inform conservation advocacy.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>98. Custom Geospatial Python Library Development</h3>
+                <p>Create and sell small, specialized Python libraries to solve specific geospatial problems for professionals.</p>
+                <h4>Sample Project: "A Python Library for Geocoding Kenyan Addresses"</h4>
+                <p class="project-description">Develop a Python library that is specifically optimized for geocoding Kenyan addresses, which can be sold to other developers and companies.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+            <div class="idea">
+                <h3>99. GIS for Disaster Damage Assessment</h3>
+                <p>Use drone or satellite imagery to quickly map and assess damage after a natural disaster, assisting in relief efforts.</p>
+                <h4>Sample Project: "Mapping Damage after a Flood in the Tana River Basin"</h4>
+                <p class="project-description">A disaster relief organization needs a map that quickly identifies all affected homes and infrastructure after a major flood in the Tana River basin to prioritize rescue and aid efforts.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+            
+            <div class="idea">
+                <h3>100. Personalized "Our Story" Maps</h3>
+                <p>A creative service for couples or families to create a custom map marking significant locations in their lives, such as where they met, got married, and lived.</p>
+                <h4>Sample Project: "A Personalized Map of a Couple's Life in Kenya"</h4>
+                <p class="project-description">A couple wants a framed map of Kenya that highlights key locations in their life together, with custom icons and labels, to commemorate their journey.</p>
+                <button class="copy-btn">Copy Project Description</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container" id="terms">
+        <h2 class="section-title">Terms & Conditions</h2>
+        <p>This is a legal agreement between you, the client, and Kimathi Joram, the freelancer. By engaging in my services, you agree to the following terms:</p>
+        <ol>
+            <li>**Service Agreement:** All services will be based on a mutually agreed-upon scope of work, including deliverables, timelines, and costs. A formal proposal will be provided for all projects.</li>
+            <li>**Payment:** A 50% deposit is required before the start of any project. The remaining 50% is due upon project completion and your satisfaction with the deliverables. Payment can be made via M-Pesa or bank transfer.</li>
+            <li>**Data Ownership:** You, the client, will retain full ownership of any data you provide. I, as the freelancer, will retain ownership of the tools, scripts, and methodologies used to produce the deliverables unless otherwise specified in the agreement.</li>
+            <li>**Confidentiality:** All client data and project information will be kept strictly confidential and will not be shared with any third party without your explicit consent.</li>
+            <li>**Revisions:** Minor revisions are included in the project cost. Substantial changes to the original scope of work may incur additional fees.</li>
+            <li>**Disclaimer:** The accuracy of the deliverables is highly dependent on the quality of the data provided by the client. I am not responsible for inaccuracies resulting from faulty source data.</li>
+            <li>**Termination:** Either party may terminate the agreement with written notice. In such a case, I will be compensated for all work completed up to the date of termination.</li>
+            <li>**Liability:** My liability for any damages arising from my services will not exceed the total project fee.</li>
+        </ol>
+        <p>For any questions regarding these terms, please contact me at my email address provided below.</p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>Contact Me:</strong> <a href="mailto:celestakim018@gmail.com">celestakim018@gmail.com</a></p>
+            <p>KIMATHI JORAM - GIS Solutions. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // JavaScript for Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const ideaGrid = document.getElementById('ideaGrid');
+        const ideas = ideaGrid.getElementsByClassName('idea');
+
+        searchInput.addEventListener('keyup', function(event) {
+            const query = event.target.value.toLowerCase();
+
+            for (let i = 0; i < ideas.length; i++) {
+                const ideaText = ideas[i].textContent.toLowerCase();
+                if (ideaText.includes(query)) {
+                    ideas[i].style.display = '';
+                } else {
+                    ideas[i].style.display = 'none';
+                }
+            }
+        });
+
+        // JavaScript for Copy Buttons
+        const copyButtons = document.querySelectorAll('.copy-btn');
+        copyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const projectDescription = this.previousElementSibling.textContent;
+                navigator.clipboard.writeText(projectDescription).then(() => {
+                    this.textContent = 'Copied!';
+                    setTimeout(() => {
+                        this.textContent = 'Copy Project Description';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
