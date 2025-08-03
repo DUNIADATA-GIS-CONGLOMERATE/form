@@ -146,7 +146,8 @@
         <p style="text-align: center; color: #666;">Please fill out this form to tell me more about your project.</p>
         
         <!-- The 'action' attribute redirects to a new thank you page -->
-        <form name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thankyou.html" enctype="multipart/form-data">
+        <form name="inquiry" method="POST" netlify="true" netlify-honeypot="bot-field" action="/thankyou.html" enctype="multipart/form-data">
+            
             
             <!-- Honeypot field (hidden from users, but spambots will fill it) -->
             <input class="visually-hidden" name="bot-field">
