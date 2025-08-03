@@ -132,8 +132,11 @@
         <h1>Project Inquiry Form</h1>
         <p style="text-align: center; color: #666;">Please fill out this form to tell me more about your project.</p>
         
-        <!-- The 'netlify' attribute makes this form work without any custom backend code -->
+        <!-- Netlify form attribute added here -->
         <form name="inquiry" method="POST" data-netlify="true" enctype="multipart/form-data">
+            <!-- New hidden field to redirect to the main page after submission -->
+            <input type="hidden" name="_redirect" value="/index.html">
+
             <h2>Your Contact Information</h2>
             <div class="form-group">
                 <label for="name">Your Name</label>
