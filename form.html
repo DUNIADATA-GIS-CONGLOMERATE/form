@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIS Project Inquiry Form</title>
+    <style>
+        /* General Body and Container Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f4f4; /* Light teal from the website */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 700px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #004d40; /* Dark teal accent */
+        }
+        
+        /* Heading Styles */
+        h1 {
+            text-align: center;
+            color: #004d40;
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #00796b; /* Green accent */
+            border-bottom: 2px solid #b2dfdb;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        /* Form Layout and Input Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select,
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box; /* Ensures padding doesn't affect total width */
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        textarea:focus,
+        select:focus,
+        input[type="file"]:focus {
+            outline: none;
+            border-color: #00796b;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Radio Button Group */
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 5px;
+        }
+        .radio-group label {
+            display: inline-block;
+            font-weight: normal;
+        }
+        
+        /* Submit Button Styles */
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #004d40;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .submit-btn:hover {
+            background-color: #00796b;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .submit-btn {
+                font-size: 1rem;
+            }
+        }
+
+        /* Honeypot field styles - hide this field from view */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Project Inquiry Form</h1>
+        <p style="text-align: center; color: #666;">Please fill out this form to tell me more about your project.</p>
+        
+        <!-- The 'action' attribute redirects to a new thank you page -->
+        <form name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thankyou.html" enctype="multipart/form-data">
+            
+            <!-- Honeypot field (hidden from users, but spambots will fill it) -->
+            <input class="visually-hidden" name="bot-field">
+
+            <h2>Your Contact Information</h2>
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+
+            <h2>Project Details</h2>
+            <div class="form-group">
+                <label for="project-title">Project Title</label>
+                <input type="text" id="project-title" name="project-title" required>
+            </div>
+            <div class="form-group">
+                <label for="project-type">Project Type</label>
+                <select id="project-type" name="project-type" required>
+                    <option value="" disabled selected>Select a service...</option>
+                    <option value="cartography">Cartographic Services</option>
+                    <option value="web-mapping">Web Map Development</option>
+                    <option value="data-digitization">Data Digitization & Geocoding</option>
+                    <option value="remote-sensing">Remote Sensing & Analysis</option>
+                    <option value="site-suitability">Site Suitability Analysis</option>
+                    <option value="agriculture">Precision Agriculture</option>
+                    <option value="urban-planning">Urban Planning & Modeling</option>
+                    <option value="environmental">Environmental Analysis & Mapping</option>
+                    <option value="other">Other (Please specify below)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="project-description">Detailed Project Description</label>
+                <textarea id="project-description" name="project-description" required placeholder="Please describe your project, your key goals, and what you hope to achieve."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="target-audience">Target Audience for the Project</label>
+                <input type="text" id="target-audience" name="target-audience" placeholder="e.g., City planners, farmers, general public, investors">
+            </div>
+            
+            <h2>Data & Resources</h2>
+            <div class="form-group">
+                <label>Do you have existing data to work with?</label>
+                <div class="radio-group">
+                    <input type="radio" id="data-yes" name="has-data" value="yes">
+                    <label for="data-yes">Yes</label>
+                    <input type="radio" id="data-no" name="has-data" value="no" checked>
+                    <label for="data-no">No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="data-description">If yes, please describe the data you have (e.g., format, source, size).</label>
+                <textarea id="data-description" name="data-description" placeholder="e.g., We have a CSV file of customer addresses, and a PDF map of our property."></textarea>
+            </div>
+             <div class="form-group">
+                <label for="data-upload">Upload Data Files</label>
+                <input type="file" id="data-upload" name="data-upload" multiple>
+            </div>
+
+            <h2>Timeline & Budget</h2>
+            <div class="form-group">
+                <label for="deadline">Desired Project Completion Date</label>
+                <input type="date" id="deadline" name="deadline">
+            </div>
+            <div class="form-group">
+                <label for="budget">Project Budget (Optional)</label>
+                <input type="text" id="budget" name="budget" placeholder="e.g., KSH 50,000 - 100,000">
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Inquiry</button>
+        </form>
+    </div>
+
+</body>
+</html>
