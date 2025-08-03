@@ -3,215 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIS Project Inquiry Form</title>
+    <title>Professional GIS Services</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* General Body and Container Styles */
+        /* Apply the Inter font and set a consistent background color */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #e9f4f4; /* Light teal from the website */
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4; /* A light, fresh green-white */
+            color: #1f2937; /* Dark gray for text */
         }
-        .form-container {
-            width: 100%;
-            max-width: 700px;
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-top: 5px solid #004d40; /* Dark teal accent */
-        }
-        
-        /* Heading Styles */
-        h1 {
-            text-align: center;
-            color: #004d40;
-            font-size: 2.5rem;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        h2 {
-            color: #00796b; /* Green accent */
-            border-bottom: 2px solid #b2dfdb;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-
-        /* Form Layout and Input Styles */
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #555;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="date"],
-        textarea,
-        select,
-        input[type="file"] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-sizing: border-box; /* Ensures padding doesn't affect total width */
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="tel"]:focus,
-        input[type="date"]:focus,
-        textarea:focus,
-        select:focus,
-        input[type="file"]:focus {
-            outline: none;
-            border-color: #00796b;
-        }
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        /* Radio Button Group */
-        .radio-group {
-            display: flex;
-            gap: 20px;
-            margin-top: 5px;
-        }
-        .radio-group label {
-            display: inline-block;
-            font-weight: normal;
-        }
-        
-        /* Submit Button Styles */
-        .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background-color: #004d40;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        .submit-btn:hover {
-            background-color: #00796b;
-            transform: translateY(-2px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .form-container {
-                padding: 25px;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            .submit-btn {
-                font-size: 1rem;
-            }
+        /* Custom styles for gradients and other effects */
+        .gradient-bg {
+            background-image: linear-gradient(to right, #059669, #10b981); /* Green gradient */
         }
     </style>
 </head>
 <body>
 
-    <div class="form-container">
-        <h1>Project Inquiry Form</h1>
-        <p style="text-align: center; color: #666;">Please fill out this form to tell me more about your project.</p>
-        
-        <!-- Netlify form attribute added here -->
-        <form name="inquiry" method="POST" data-netlify="true" enctype="multipart/form-data">
-            <!-- New hidden field to redirect to the main page after submission -->
-            <input type="hidden" name="_redirect" value="/index.html">
+    <!-- Header & Hero Section -->
+    <header class="bg-white shadow-md rounded-b-xl">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold text-emerald-700">GIS Solutions</div>
+            <!-- Navigation links, hidden on mobile -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#services" class="text-gray-600 hover:text-emerald-500 transition duration-300">Services</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-emerald-500 transition duration-300">Portfolio</a>
+                <a href="#contact" class="text-gray-600 hover:text-emerald-500 transition duration-300">Contact</a>
+            </div>
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-gray-600 hover:text-emerald-500 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+    </header>
 
-            <h2>Your Contact Information</h2>
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
+    <main class="container mx-auto px-6 py-12">
+        <!-- Hero Section with a Call to Action -->
+        <section class="text-center py-20 rounded-xl gradient-bg shadow-lg text-white">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4">
+                Unlock Insights with Powerful GIS
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl font-light max-w-3xl mx-auto mb-8">
+                Providing expert Geographic Information Systems solutions for a smarter world.
+            </p>
+            <!-- Link to the form.html page -->
+            <a href="form.html" class="bg-white text-emerald-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                Start Your Project
+            </a>
+        </section>
 
-            <h2>Project Details</h2>
-            <div class="form-group">
-                <label for="project-title">Project Title</label>
-                <input type="text" id="project-title" name="project-title" required>
-            </div>
-            <div class="form-group">
-                <label for="project-type">Project Type</label>
-                <select id="project-type" name="project-type" required>
-                    <option value="" disabled selected>Select a service...</option>
-                    <option value="cartography">Cartographic Services</option>
-                    <option value="web-mapping">Web Map Development</option>
-                    <option value="data-digitization">Data Digitization & Geocoding</option>
-                    <option value="remote-sensing">Remote Sensing & Analysis</option>
-                    <option value="site-suitability">Site Suitability Analysis</option>
-                    <option value="agriculture">Precision Agriculture</option>
-                    <option value="urban-planning">Urban Planning & Modeling</option>
-                    <option value="environmental">Environmental Analysis & Mapping</option>
-                    <option value="other">Other (Please specify below)</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="project-description">Detailed Project Description</label>
-                <textarea id="project-description" name="project-description" required placeholder="Please describe your project, your key goals, and what you hope to achieve."></textarea>
-            </div>
-            <div class="form-group">
-                <label for="target-audience">Target Audience for the Project</label>
-                <input type="text" id="target-audience" name="target-audience" placeholder="e.g., City planners, farmers, general public, investors">
-            </div>
-            
-            <h2>Data & Resources</h2>
-            <div class="form-group">
-                <label>Do you have existing data to work with?</label>
-                <div class="radio-group">
-                    <input type="radio" id="data-yes" name="has-data" value="yes">
-                    <label for="data-yes">Yes</label>
-                    <input type="radio" id="data-no" name="has-data" value="no" checked>
-                    <label for="data-no">No</label>
+        <!-- Services Section -->
+        <section id="services" class="py-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-emerald-800 mb-12">Our Core Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md text-center border-t-4 border-emerald-500 transition-transform transform hover:scale-105">
+                    <div class="text-4xl text-emerald-500 mb-4">
+                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Cartography & Map Design</h3>
+                    <p class="text-gray-600">Creating beautiful and informative maps for presentations, reports, and websites.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md text-center border-t-4 border-emerald-500 transition-transform transform hover:scale-105">
+                    <div class="text-4xl text-emerald-500 mb-4">
+                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L19.5 7.25M9.75 17L3.75 11.25V5.25L9.75 5.25V17Z" stroke-linejoin="round" stroke-miterlimit="10"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 7.25H13.5V1.25L19.5 7.25Z" stroke-linejoin="round" stroke-miterlimit="10"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Spatial Data Analysis</h3>
+                    <p class="text-gray-600">Turning raw data into meaningful insights through advanced analysis techniques.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md text-center border-t-4 border-emerald-500 transition-transform transform hover:scale-105">
+                    <div class="text-4xl text-emerald-500 mb-4">
+                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c2.165 0 3.864 0.99 4.864 2.828M15.42 12A7.5 7.5 0 0012 5.5v1.5a6 6 0 110 12v1.5a7.5 7.5 0 003.42-2.915"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Web Mapping & GIS Portals</h3>
+                    <p class="text-gray-600">Building interactive web maps and custom GIS portals for your organization.</p>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="data-description">If yes, please describe the data you have (e.g., format, source, size).</label>
-                <textarea id="data-description" name="data-description" placeholder="e.g., We have a CSV file of customer addresses, and a PDF map of our property."></textarea>
-            </div>
-             <div class="form-group">
-                <label for="data-upload">Upload Data Files</label>
-                <input type="file" id="data-upload" name="data-upload" multiple>
-            </div>
+        </section>
 
-            <h2>Timeline & Budget</h2>
-            <div class="form-group">
-                <label for="deadline">Desired Project Completion Date</label>
-                <input type="date" id="deadline" name="deadline">
+        <!-- Call to Action Section - Again -->
+        <section class="py-16 text-center">
+            <div class="bg-emerald-100 p-12 rounded-xl shadow-md">
+                <h3 class="text-3xl font-bold text-emerald-800 mb-4">Ready to Start Your Project?</h3>
+                <p class="text-lg text-gray-700 mb-8">Tell us about your needs and let's build something great together.</p>
+                <!-- Link to the form.html page -->
+                <a href="form.html" class="bg-emerald-600 text-white hover:bg-emerald-700 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                    Fill Out the Form
+                </a>
             </div>
-            <div class="form-group">
-                <label for="budget">Project Budget (Optional)</label>
-                <input type="text" id="budget" name="budget" placeholder="e.g., KSH 50,000 - 100,000">
-            </div>
+        </section>
 
-            <button type="submit" class="submit-btn">Submit Inquiry</button>
-        </form>
-    </div>
+        <!-- Contact Section -->
+        <section id="contact" class="py-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-emerald-800 mb-12">Contact Us</h2>
+            <div class="max-w-xl mx-auto text-center">
+                <p class="text-lg text-gray-700 mb-4">
+                    Have questions or want to discuss a custom project? Feel free to reach out.
+                </p>
+                <div class="text-gray-600">
+                    <p>Email: <a href="mailto:info@gissolutions.com" class="text-emerald-500 hover:underline">info@gissolutions.com</a></p>
+                    <p>Phone: +1 (123) 456-7890</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 rounded-t-xl">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 GIS Solutions. All Rights Reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
